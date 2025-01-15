@@ -1,18 +1,23 @@
 <div class="wrapper">
   <form action="">
-    <h1>Login</h1>
+    <h1>Logowanie</h1>
     <div class="input-box">
       <input type="text" placeholder="Nazwa użytkownika" required>
       <i class='bx bxs-user'></i>
       </div>
     <div class="input-box">
-      <input type="text" placeholder="Hasło" required>
-      <i class='bx bxs-lock-alt' ></i>
+      <input
+        [type]="visible ? 'text' : 'password'"
+        [(ngModel)]="passwordValue"
+        [ngModelOptions]="{standalone: true}"
+        placeholder="Hasło"
+        required
+      />
+    <i (click)="toggleVisibility()" [ngClass]="getPasswordIconClass()"></i>
     </div>
       <button type="submit" class="btn">Zaloguj się</button>
-
     <div class="register-link">
-      <p>Nie masz konta? <a href="#">Zarejestruj się</a></p>
+      <p>Nie masz konta? <a routerLink="/register">Zarejestruj się</a></p>
     </div>
   </form>
 </div>
