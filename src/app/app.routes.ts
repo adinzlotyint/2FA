@@ -1,7 +1,7 @@
 import { Routes } from '@angular/router';
-import {LoginComponent} from './login/login.component';
-import {RegisterComponent} from './register/register.component';
-import {SettingsComponent} from './settings/settings.component';
+import {LoginComponent} from './Components/login/login.component';
+import {RegisterComponent} from './Components/register/register.component';
+import {SettingsComponent} from './Components/settings/settings.component';
 
 export const routes: Routes = [
   { path: '', component: LoginComponent },

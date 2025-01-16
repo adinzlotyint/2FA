@@ -1,0 +1,13 @@
+<div class="wrapper">
+  <form (submit)="onRegister()">
+    <h1>Rejestracja</h1>
+    <div class="input-box">
+      <input type="text" [(ngModel)]="username" name="username" placeholder="Nazwa użytkownika" required />
+      <i class="bx bxs-user"></i>
+    </div>
+    <app-passwordBox  [(passwordValue)]="password" placeholder="Ustaw hasło"></app-passwordBox>
+    <app-passwordBox [(passwordValue)]="confirmPassword" placeholder="Potwierdź hasło"></app-passwordBox>
+    <button type="submit" class="btn">Zarejestruj się</button>
+    <p *ngIf="message" class="error">{{ message }}</p>
+  </form>
+</div>

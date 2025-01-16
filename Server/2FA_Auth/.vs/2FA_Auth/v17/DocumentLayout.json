@@ -1,7 +1,12 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "D:\\Studia\\Magisterka\\Semestr 2\\Bezpiecze\u0144stwo aplikacji internetowych\\App\\Implementacja autoryzacji dwusk\u0142adnikowej\\Server\\2FA_Auth\\",
-  "Documents": [],
+  "WorkspaceRootPath": "D:\\Studia\\Magisterka\\Semestr 2\\Bezpiecze\u0144stwo aplikacji internetowych\\App\\Implementacja autoryzacji dwusk\u0142adnikowej\\Website\\Server\\2FA_Auth\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{3A5DC7C4-8215-41C8-ABC1-0EA5037AE6D6}|2FA_Auth.csproj|d:\\studia\\magisterka\\semestr 2\\bezpiecze\u0144stwo aplikacji internetowych\\app\\implementacja autoryzacji dwusk\u0142adnikowej\\website\\server\\2fa_auth\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3A5DC7C4-8215-41C8-ABC1-0EA5037AE6D6}|2FA_Auth.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
@@ -9,11 +14,24 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": -1,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Program.cs",
+              "DocumentMoniker": "D:\\Studia\\Magisterka\\Semestr 2\\Bezpiecze\u0144stwo aplikacji internetowych\\App\\Implementacja autoryzacji dwusk\u0142adnikowej\\Website\\Server\\2FA_Auth\\Program.cs",
+              "RelativeDocumentMoniker": "Program.cs",
+              "ToolTip": "D:\\Studia\\Magisterka\\Semestr 2\\Bezpiecze\u0144stwo aplikacji internetowych\\App\\Implementacja autoryzacji dwusk\u0142adnikowej\\Website\\Server\\2FA_Auth\\Program.cs",
+              "RelativeToolTip": "Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAaAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-16T17:13:26.892Z",
+              "EditorCaption": ""
             }
           ]
         }
