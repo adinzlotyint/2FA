@@ -1,0 +1,12 @@
+{
+  "Version": 1,
+  "Hash": "ayqYstXQ2LpbLxr9GiP74yyVhrjUEkYypI6saIH+SHg=",
+  "Source": "2FA_Auth",
+  "BasePath": "_content/2FA_Auth",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": [],
+  "Endpoints": []
+}
