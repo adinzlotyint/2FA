@@ -6,8 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class AuthService {
-  private baseUrl = 'http://localhost:5219/api/auth'; // Your ASP.NET Core endpoint
-
+  private baseUrl = 'http://localhost:5219/api/auth';
   constructor(private http: HttpClient) {}
 
   register(username: string, password: string, email: string): Observable<any> {

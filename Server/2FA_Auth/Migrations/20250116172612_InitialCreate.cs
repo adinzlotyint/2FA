@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
-namespace _2FA_Auth.Migrations
+namespace Auth2FA.Migrations
 {
     /// <inheritdoc />
     public partial class InitialCreate : Migration

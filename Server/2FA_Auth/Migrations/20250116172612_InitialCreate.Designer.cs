@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
 
-namespace _2FA_Auth.Migrations
+namespace Auth2FA.Migrations
 {
     [DbContext(typeof(AppDbContext))]
     [Migration("20250116172612_InitialCreate")]

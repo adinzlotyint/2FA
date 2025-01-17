@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
-import { NgClass } from '@angular/common';
+import { NgIf} from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { AuthService } from '../../Services/auth.service';
 import { PasswordBoxComponent } from '../passwordbox/passwordBox.component';
@@ -10,8 +10,8 @@ import { PasswordBoxComponent } from '../passwordbox/passwordBox.component';
   standalone: true,
   imports: [
     RouterLink,
-    NgClass, PasswordBoxComponent,
-    FormsModule
+    PasswordBoxComponent,
+    FormsModule, NgIf
   ],
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
@@ -29,8 +29,7 @@ export class LoginComponent {
       .subscribe({
         next: (res) => {
           this.message = 'Login successful';
-          // Optionally store token
-          // localStorage.setItem('token', res.token);
+          localStorage.setItem('token', res.token);
         },
         error: (err) => {
           this.message = err.error;

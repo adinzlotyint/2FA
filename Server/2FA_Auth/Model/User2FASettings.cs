@@ -1,7 +1,7 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace Models {
+namespace Auth2FA.Model {
   public class User2FASettings {
     [Key]
     public int User2FASettingsId { get; set; }

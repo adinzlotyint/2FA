@@ -1,6 +1,6 @@
-@_2FA_Auth_HostAddress = http://localhost:5219
+@Auth2FA_HostAddress = http://localhost:5219
 
-GET {{_2FA_Auth_HostAddress}}/weatherforecast/
+GET {{Auth2FA_HostAddress}}/weatherforecast/
 Accept: application/json
 
 ###

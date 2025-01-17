@@ -1,6 +1,6 @@
 using System.ComponentModel.DataAnnotations;
 
-namespace Models {
+namespace Auth2FA.Model {
   public class User {
     [Key]
     public int Id { get; set; }

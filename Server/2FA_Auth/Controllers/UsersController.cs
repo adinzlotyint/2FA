@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 using Data;
-using Models;
+using Auth2FA.Model.Requests;
 using Microsoft.EntityFrameworkCore;
 
 [ApiController]
@@ -41,7 +41,4 @@ public class UsersController : ControllerBase {
   }
 }
 
-public class Update2FARequest {
-  public string Method { get; set; }
-  public string SecretKey { get; set; }
-}
+

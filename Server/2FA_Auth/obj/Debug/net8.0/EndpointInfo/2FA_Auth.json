@@ -2,7 +2,6 @@
   "openapi": "3.0.1",
   "info": {
     "title": "My API",
-    "description": "An API for demonstrating Swagger integration",
     "contact": {
       "name": "Your Name",
       "email": "your.email@example.com"
@@ -10,7 +9,7 @@
     "version": "v1"
   },
   "paths": {
-    "/api/Auth/register": {
+    "/api/Auth/registerr": {
       "post": {
         "tags": [
           "Auth"
