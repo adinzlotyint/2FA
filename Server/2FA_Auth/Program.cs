@@ -8,7 +8,7 @@ Batteries_V2.Init();
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddDbContext<AppDbContext>(options =>
-    options.UseSqlite("Data Source =./ local.db"));
+    options.UseSqlite("Data Source =./local.db"));
 
 builder.Services.AddScoped<AuthService>();
 

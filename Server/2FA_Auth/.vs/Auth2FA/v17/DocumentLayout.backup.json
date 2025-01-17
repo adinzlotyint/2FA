@@ -3,8 +3,8 @@
   "WorkspaceRootPath": "D:\\Studia\\Magisterka\\Semestr 2\\Bezpiecze\u0144stwo aplikacji internetowych\\App\\Implementacja autoryzacji dwusk\u0142adnikowej\\Website\\Server\\2FA_Auth\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{3A5DC7C4-8215-41C8-ABC1-0EA5037AE6D6}|Auth2FA.csproj|d:\\studia\\magisterka\\semestr 2\\bezpiecze\u0144stwo aplikacji internetowych\\app\\implementacja autoryzacji dwusk\u0142adnikowej\\website\\server\\2fa_auth\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3A5DC7C4-8215-41C8-ABC1-0EA5037AE6D6}|Auth2FA.csproj|solutionrelative:controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{3A5DC7C4-8215-41C8-ABC1-0EA5037AE6D6}|Auth2FA.csproj|d:\\studia\\magisterka\\semestr 2\\bezpiecze\u0144stwo aplikacji internetowych\\app\\implementacja autoryzacji dwusk\u0142adnikowej\\website\\server\\2fa_auth\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3A5DC7C4-8215-41C8-ABC1-0EA5037AE6D6}|Auth2FA.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -23,14 +23,14 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "AuthController.cs",
-              "DocumentMoniker": "D:\\Studia\\Magisterka\\Semestr 2\\Bezpiecze\u0144stwo aplikacji internetowych\\App\\Implementacja autoryzacji dwusk\u0142adnikowej\\Website\\Server\\2FA_Auth\\Controllers\\AuthController.cs",
-              "RelativeDocumentMoniker": "Controllers\\AuthController.cs",
-              "ToolTip": "D:\\Studia\\Magisterka\\Semestr 2\\Bezpiecze\u0144stwo aplikacji internetowych\\App\\Implementacja autoryzacji dwusk\u0142adnikowej\\Website\\Server\\2FA_Auth\\Controllers\\AuthController.cs",
-              "RelativeToolTip": "Controllers\\AuthController.cs",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAAAAwAAAAAAAAAAAAAAA==",
+              "Title": "Program.cs",
+              "DocumentMoniker": "D:\\Studia\\Magisterka\\Semestr 2\\Bezpiecze\u0144stwo aplikacji internetowych\\App\\Implementacja autoryzacji dwusk\u0142adnikowej\\Website\\Server\\2FA_Auth\\Program.cs",
+              "RelativeDocumentMoniker": "Program.cs",
+              "ToolTip": "D:\\Studia\\Magisterka\\Semestr 2\\Bezpiecze\u0144stwo aplikacji internetowych\\App\\Implementacja autoryzacji dwusk\u0142adnikowej\\Website\\Server\\2FA_Auth\\Program.cs",
+              "RelativeToolTip": "Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAZAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-17T18:36:22.712Z",
+              "WhenOpened": "2025-01-17T20:01:01.557Z",
               "EditorCaption": ""
             }
           ]

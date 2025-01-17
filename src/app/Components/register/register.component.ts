@@ -1,13 +1,14 @@
 import { Component } from '@angular/core';
 import { AuthService } from '../../Services/auth.service';
 import { FormsModule } from '@angular/forms';
-import {NgClass, NgIf} from '@angular/common';
+import { NgIf} from '@angular/common';
 import { PasswordBoxComponent } from '../passwordbox/passwordBox.component';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-register',
   standalone: true,
-  imports: [FormsModule, PasswordBoxComponent, NgClass, NgIf],
+  imports: [FormsModule, PasswordBoxComponent, NgIf],
   templateUrl: './register.component.html',
   styleUrl: './register.component.css',
 })
@@ -18,7 +19,7 @@ export class RegisterComponent {
   username: string = '';
   email: string = '';
 
-  constructor(private authService: AuthService) {}
+  constructor(private authService: AuthService, private router: Router) {}
 
   onRegister() {
     if (this.password !== this.confirmPassword) {
@@ -29,8 +30,9 @@ export class RegisterComponent {
     this.authService
       .register(this.username, this.password, this.email)
       .subscribe({
-        next: (res) => {
+        next: () => {
           this.message = 'Registration successful';
+          this.router.navigate(['']);
         },
         error: (err) => {
           this.message = err.error;

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { RouterLink } from '@angular/router';
+import {Router, RouterLink} from '@angular/router';
 import { NgIf} from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { AuthService } from '../../Services/auth.service';
@@ -22,14 +22,15 @@ export class LoginComponent {
   twoFactorCode: string = '';
   message: string = '';
 
-  constructor(private authService: AuthService) {}
+  constructor(private authService: AuthService, private router: Router) {}
 
   onLogin() {
     this.authService.login(this.username, this.password, this.twoFactorCode)
       .subscribe({
         next: (res) => {
           this.message = 'Login successful';
-          localStorage.setItem('token', res.token);
+          localStorage.setItem('token', res.token); // Save the token
+          this.router.navigate(['/settings']); // Navigate to settings
         },
         error: (err) => {
           this.message = err.error;
