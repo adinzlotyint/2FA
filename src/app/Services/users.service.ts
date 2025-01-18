@@ -1,3 +1,5 @@
+// src/app/Services/users.service.ts
+
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
@@ -6,7 +8,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class UsersService {
-  private baseUrl = 'http://localhost:5219/api/users'; // Your ASP.NET Core endpoint
+  private baseUrl = 'http://localhost:5219/api/users'; // Update with your backend URL
 
   constructor(private http: HttpClient) {}
 
@@ -14,11 +16,13 @@ export class UsersService {
     return this.http.get(`${this.baseUrl}/${userId}/2fa`);
   }
 
-  sendOTP(email: string, userId: number) {
-    return this.http.post('/api/Auth/send-otp', { email, userId });
+  update2FASettings(userId: number, method: string, secretKey: string): Observable<any> {
+    const payload = { method, secretKey };
+    return this.http.put(`${this.baseUrl}/${userId}/2fa`, payload);
   }
 
-  update2FASettings(userId: number, method: string, secretKey: string | null = null): Observable<any> {
-    return this.http.put(`${this.baseUrl}/${userId}/2fa`, method);
+  // Optional: Fetch username based on userId if needed
+  getUsername(userId: number): Observable<any> {
+    return this.http.get(`http://localhost:5219/api/users/${userId}`);
   }
 }

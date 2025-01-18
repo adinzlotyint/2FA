@@ -7,9 +7,11 @@ using System.Security.Cryptography;
 namespace Auth2FA.Services {
   public class AuthService {
     private readonly AppDbContext _context;
+    private readonly TotpService _totpService;
 
-    public AuthService(AppDbContext context) {
+    public AuthService(AppDbContext context, TotpService totpService) {
       _context = context;
+      _totpService = totpService;
     }
 
     public async Task<bool> IsUsernameTakenAsync(string username) {
@@ -25,6 +27,7 @@ namespace Auth2FA.Services {
       _context.Users.Add(user);
       await _context.SaveChangesAsync();
 
+      // Optional: Initialize User2FASettings with Method = "None"
       var user2FA = new User2FASettings {
         UserId = user.Id,
         Method = "None",
@@ -60,7 +63,7 @@ namespace Auth2FA.Services {
 
       // Hash the password with the salt using PBKDF2
       using (var pbkdf2 = new Rfc2898DeriveBytes(password, salt, 100000, HashAlgorithmName.SHA256)) {
-        byte[] hash = pbkdf2.GetBytes(32); // Get a 256-bit hash
+        byte[] hash = pbkdf2.GetBytes(32); // 256-bit hash
                                            // Combine the salt and hash for storage
         byte[] hashBytes = new byte[48];
         Array.Copy(salt, 0, hashBytes, 0, 16);
@@ -70,6 +73,7 @@ namespace Auth2FA.Services {
         return Convert.ToBase64String(hashBytes);
       }
     }
+
     private bool VerifyPassword(string providedPassword, string storedHash) {
       // Extract the salt and hash from the stored password
       byte[] hashBytes = Convert.FromBase64String(storedHash);
@@ -79,7 +83,6 @@ namespace Auth2FA.Services {
       // Hash the input password with the same salt
       using (var pbkdf2 = new Rfc2898DeriveBytes(providedPassword, salt, 100000, HashAlgorithmName.SHA256)) {
         byte[] hash = pbkdf2.GetBytes(32);
-
         // Compare the resulting hash with the stored hash
         for (int i = 0; i < 32; i++) {
           if (hashBytes[i + 16] != hash[i]) {
@@ -90,10 +93,13 @@ namespace Auth2FA.Services {
 
       return true;
     }
-    public bool Verify2FA(string method, string secretKey, string code) {
 
-      return true;
+    public bool Verify2FA(string method, string secretKey, string code) {
+      if (method == "TOTP") {
+        return _totpService.VerifyTOTP(secretKey, code);
+      }
+
+      return false;
     }
   }
-
 }

@@ -74,18 +74,12 @@
         ],
         "parameters": [
           {
-            "name": "username",
-            "in": "query",
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
             "name": "userId",
             "in": "path",
             "required": true,
             "schema": {
-              "type": "string"
+              "type": "integer",
+              "format": "int32"
             }
           }
         ],
@@ -165,10 +159,6 @@
             "nullable": true
           },
           "password": {
-            "type": "string",
-            "nullable": true
-          },
-          "email": {
             "type": "string",
             "nullable": true
           }

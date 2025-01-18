@@ -1,12 +1,17 @@
+// Services/TotpService.cs
+
+using OtpNet;
+using System;
+
 namespace Auth2FA.Services {
-  using OtpNet;
-  using System;
   public class TotpService {
     public string GenerateTOTPSecret() {
-      var key = KeyGeneration.GenerateRandomKey(20);
+      var key = KeyGeneration.GenerateRandomKey(20); // 160-bit secret
       return Base32Encoding.ToString(key);
     }
+
     public string GenerateQRCodeUri(string secret, string username) {
+      // This method can be used if you decide to implement QR codes in the future
       return $"otpauth://totp/MyApp:{username}?secret={secret}&issuer=MyApp";
     }
 
@@ -15,5 +20,4 @@ namespace Auth2FA.Services {
       return totp.VerifyTotp(code, out _, VerificationWindow.RfcSpecifiedNetworkDelay);
     }
   }
-
 }

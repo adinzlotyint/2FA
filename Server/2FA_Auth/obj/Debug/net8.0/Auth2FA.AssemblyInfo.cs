@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Auth2FA")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+2dceab17ab893207665250cab59f6def8010d363")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+34e1b52eb61e9a0226f938610e3fe3880b11b959")]
 [assembly: System.Reflection.AssemblyProductAttribute("Auth2FA")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Auth2FA")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

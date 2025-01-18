@@ -11,6 +11,7 @@ builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseSqlite("Data Source =./local.db"));
 
 builder.Services.AddScoped<AuthService>();
+builder.Services.AddScoped<TotpService>();
 
 builder.Services.AddCors(options => {
   options.AddDefaultPolicy(policy => {
