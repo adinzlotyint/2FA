@@ -17,7 +17,6 @@ export class RegisterComponent {
   confirmPassword = '';
   message = '';
   username: string = '';
-  email: string = '';
 
   constructor(private authService: AuthService, private router: Router) {}
 
@@ -28,7 +27,7 @@ export class RegisterComponent {
     }
 
     this.authService
-      .register(this.username, this.password, this.email)
+      .register(this.username, this.password)
       .subscribe({
         next: () => {
           this.message = 'Registration successful';

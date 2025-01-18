@@ -11,8 +11,5 @@ namespace Auth2FA.Model {
 
     [Required]
     public string PasswordHash { get; set; }
-
-    [EmailAddress]
-    public string Email { get; set; }
   }
 }

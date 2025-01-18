@@ -35,15 +35,13 @@ public class AuthController : ControllerBase {
     var user2FA = await _authService.GetUser2FASettingsAsync(user.Id);
     if (user2FA != null && user2FA.Method != "None") {
       // Perform 2FA verification (delegated to AuthService or another service)
-      if (!Verify2FA(user2FA.Method, user2FA.SecretKey, request.TwoFactorCode)) {
+      if (!_authService.Verify2FA(user2FA.Method, user2FA.SecretKey, request.TwoFactorCode)) {
         return Unauthorized("Invalid 2FA code.");
       }
     }
 
-    return Ok(new { Message = "Login successful." });
+    return Ok(new { Message = "Login successful.", Username = user.Id });
   }
 
-  private bool Verify2FA(string method, string secretKey, string code) {
-    return true; // Delegate this logic to a service if it grows in complexity
-  }
+
 }

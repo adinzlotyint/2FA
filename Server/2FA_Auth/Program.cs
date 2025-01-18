@@ -21,18 +21,8 @@ builder.Services.AddCors(options => {
 });
 
 builder.Services.AddControllers();
-
 builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen(options => {
-  options.SwaggerDoc("v1", new OpenApiInfo {
-    Version = "v1",
-    Title = "My API",
-    Contact = new OpenApiContact {
-      Name = "Your Name",
-      Email = "your.email@example.com"
-    }
-  });
-});
+builder.Services.AddSwaggerGen();
 
 var app = builder.Build();
 app.UseCors();

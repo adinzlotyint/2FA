@@ -2,6 +2,7 @@ using Auth2FA.Model;
 using Data;
 using Microsoft.EntityFrameworkCore;
 using Requests;
+using System.Security.Cryptography;
 
 namespace Auth2FA.Services {
   public class AuthService {
@@ -19,7 +20,6 @@ namespace Auth2FA.Services {
       var user = new User {
         Username = request.Username,
         PasswordHash = HashPassword(request.Password),
-        Email = request.Email
       };
 
       _context.Users.Add(user);
@@ -41,7 +41,7 @@ namespace Auth2FA.Services {
       var user = await _context.Users
           .FirstOrDefaultAsync(u => u.Username == username);
 
-      if (user == null || !VerifyPassword(user.PasswordHash, password)) {
+      if (user == null || !VerifyPassword(password, user.PasswordHash)) {
         return null;
       }
 
@@ -52,13 +52,47 @@ namespace Auth2FA.Services {
       return await _context.User2FASettings.FirstOrDefaultAsync(s => s.UserId == userId);
     }
 
-    // Private helper methods
     private string HashPassword(string password) {
-      return password; // Implement real hashing
-    }
+      byte[] salt = new byte[16];
+      using (var rng = RandomNumberGenerator.Create()) {
+        rng.GetBytes(salt);
+      }
 
-    private bool VerifyPassword(string storedHash, string providedPassword) {
-      return storedHash == providedPassword; // Implement real verification
+      // Hash the password with the salt using PBKDF2
+      using (var pbkdf2 = new Rfc2898DeriveBytes(password, salt, 100000, HashAlgorithmName.SHA256)) {
+        byte[] hash = pbkdf2.GetBytes(32); // Get a 256-bit hash
+                                           // Combine the salt and hash for storage
+        byte[] hashBytes = new byte[48];
+        Array.Copy(salt, 0, hashBytes, 0, 16);
+        Array.Copy(hash, 0, hashBytes, 16, 32);
+
+        // Convert to Base64 for storage
+        return Convert.ToBase64String(hashBytes);
+      }
+    }
+    private bool VerifyPassword(string providedPassword, string storedHash) {
+      // Extract the salt and hash from the stored password
+      byte[] hashBytes = Convert.FromBase64String(storedHash);
+      byte[] salt = new byte[16];
+      Array.Copy(hashBytes, 0, salt, 0, 16);
+
+      // Hash the input password with the same salt
+      using (var pbkdf2 = new Rfc2898DeriveBytes(providedPassword, salt, 100000, HashAlgorithmName.SHA256)) {
+        byte[] hash = pbkdf2.GetBytes(32);
+
+        // Compare the resulting hash with the stored hash
+        for (int i = 0; i < 32; i++) {
+          if (hashBytes[i + 16] != hash[i]) {
+            return false;
+          }
+        }
+      }
+
+      return true;
+    }
+    public bool Verify2FA(string method, string secretKey, string code) {
+
+      return true;
     }
   }
 

@@ -28,8 +28,8 @@ export class LoginComponent {
     this.authService.login(this.username, this.password, this.twoFactorCode)
       .subscribe({
         next: (res) => {
-          this.message = 'Login successful';
-          localStorage.setItem('token', res.token); // Save the token
+          this.message = res.message;
+          localStorage.setItem('token', res.username); // Save the token
           this.router.navigate(['/settings']); // Navigate to settings
         },
         error: (err) => {

@@ -1,1 +1,23 @@
-<p>settings works!</p>
+<div class="wrapper">
+  <form (submit)="onSaveSettings()">
+    <h1>Ustawienia</h1>
+    <h3>Wybierz metodę 2FA dla tego konta:</h3>
+    <div class="input-box">
+      <select [(ngModel)]="method" name="authMethod" (change)="onMethodChange()" required>
+        <option *ngFor="let method of authMethods" [value]="method">{{ method }}</option>
+      </select>
+    </div>
+
+    <div class="input-box" *ngIf="method === 'EmailOTP'">
+      <input type="email" [(ngModel)]="secretKey" name="email" placeholder="Twój adres email" required />
+    </div>
+    <div class="input-box" *ngIf="method === 'TOTP'">
+      <input type="text" [(ngModel)]="secretKey" name="secretKey" placeholder="Sekretny klucz autoryzacyjny" required />
+    </div>
+
+    <button class="btn" type="submit">Zapisz ustawienia</button>
+  </form>
+  <div class="register-link">
+    <p><a href="" (click)="onLogout()">Wyloguj</a></p>
+  </div>
+</div>

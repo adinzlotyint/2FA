@@ -14,8 +14,11 @@ export class UsersService {
     return this.http.get(`${this.baseUrl}/${userId}/2fa`);
   }
 
-  update2FASettings(userId: number, method: string, secretKey: string): Observable<any> {
-    const payload = { method, secretKey };
-    return this.http.put(`${this.baseUrl}/${userId}/2fa`, payload);
+  sendOTP(email: string, userId: number) {
+    return this.http.post('/api/Auth/send-otp', { email, userId });
+  }
+
+  update2FASettings(userId: number, method: string, secretKey: string | null = null): Observable<any> {
+    return this.http.put(`${this.baseUrl}/${userId}/2fa`, method);
   }
 }

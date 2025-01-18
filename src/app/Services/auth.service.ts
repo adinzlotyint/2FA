@@ -9,8 +9,8 @@ export class AuthService {
   private baseUrl = 'http://localhost:5219/api/auth';
   constructor(private http: HttpClient) {}
 
-  register(username: string, password: string, email: string): Observable<any> {
-    const payload = { username, password, email };
+  register(username: string, password: string): Observable<any> {
+    const payload = { username, password};
     return this.http.post(`${this.baseUrl}/register`, payload);
   }
 
@@ -20,7 +20,15 @@ export class AuthService {
   }
 
   logout(): void {
-    // For a local scenario, you might just clear localStorage or a session
-    localStorage.removeItem('token');
+    localStorage.removeItem('userId');
+  }
+
+  setUserId(userId: number): void {
+    localStorage.setItem('userId', userId.toString());
+  }
+
+  getUserId(): number | null {
+    const userId = localStorage.getItem('userId');
+    return userId ? parseInt(userId, 10) : null;
   }
 }

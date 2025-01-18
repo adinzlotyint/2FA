@@ -40,8 +40,13 @@
     "Order": 0,
     "Parameters": [
       {
+        "Name": "username",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
         "Name": "userId",
-        "Type": "System.Int32",
+        "Type": "",
         "IsRequired": true
       }
     ],
